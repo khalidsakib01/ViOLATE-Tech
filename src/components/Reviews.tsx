@@ -9,15 +9,15 @@ const reviews = [
   { name: "David Kim", handle: "@dkim", text: "They don't just build products — they build competitive advantages.", initials: "DK" },
 ];
 
-const ReviewCard = ({ r }: { r: typeof reviews[0] }) => (
-  <div className="flex-shrink-0 w-[320px] p-6 rounded-2xl glass hover:border-primary/20 transition-all duration-500">
-    <p className="text-sm text-foreground/80 leading-relaxed mb-5">"{r.text}"</p>
+const ReviewCard = ({ r, compact = false }: { r: typeof reviews[0]; compact?: boolean }) => (
+  <div className={`flex-shrink-0 rounded-2xl glass hover:border-primary/20 transition-all duration-500 ${compact ? "w-full p-4" : "w-[320px] p-6"}`}>
+    <p className={`${compact ? "text-xs" : "text-sm"} text-foreground/80 leading-relaxed mb-4 sm:mb-5`}>"{r.text}"</p>
     <div className="flex items-center gap-3">
       <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-[11px] font-semibold text-primary">
         {r.initials}
       </div>
       <div>
-        <p className="text-sm font-medium text-foreground">{r.name}</p>
+        <p className={`${compact ? "text-xs" : "text-sm"} font-medium text-foreground`}>{r.name}</p>
         <p className="text-xs text-primary/60">{r.handle}</p>
       </div>
     </div>
@@ -29,8 +29,8 @@ const Reviews = () => {
   const allReviews = [...reviews, ...reviews];
 
   return (
-    <section id="reviews" className="py-28 md:py-36 overflow-hidden">
-      <div className="container mb-12">
+    <section id="reviews" className="py-16 md:py-28 lg:py-36 overflow-hidden">
+      <div className="container mb-8 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,8 +42,16 @@ const Reviews = () => {
         </motion.div>
       </div>
 
+      <div className="md:hidden container">
+        <div className="grid gap-3">
+          {reviews.slice(0, 3).map((r) => (
+            <ReviewCard key={r.name} r={r} compact />
+          ))}
+        </div>
+      </div>
+
       {/* Marquee row - scrolls right to left */}
-      <div className="relative">
+      <div className="relative hidden md:block">
         {/* Left fade */}
         <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
         {/* Right fade */}

@@ -14,29 +14,29 @@ const WhyUs = () => {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-28 md:py-36">
+    <section className="py-16 md:py-28 lg:py-36">
       <div className="container" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <p className="text-xs uppercase tracking-[0.2em] text-primary mb-4">Why Us</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold">Built different</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-5">
           {reasons.map((r, i) => (
             <motion.div
               key={r.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="text-center p-7 rounded-2xl glass"
+              className="text-center p-5 sm:p-7 rounded-2xl glass"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                <r.icon size={20} className="text-primary" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 sm:mb-5">
+                <r.icon size={18} className="sm:h-5 sm:w-5 text-primary" />
               </div>
               <h3 className="font-display font-semibold mb-2">{r.title}</h3>
               <p className="text-sm text-muted-foreground">{r.desc}</p>
