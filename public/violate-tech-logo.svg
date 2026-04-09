@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="violet" x1="128" y1="96" x2="320" y2="352" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B56CFF"/>
+      <stop offset="1" stop-color="#8E44FF"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="256" y1="160" x2="384" y2="384" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9DE7FF"/>
+      <stop offset="1" stop-color="#46A9FF"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="512" height="512" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.55 0 1 0 0 0.35 0 0 1 0 1 0 0 0 0.35 0" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#0B0B10"/>
+  <path d="M114 140H232L175 229H284L149 372L114 140Z" fill="url(#violet)"/>
+  <path d="M279 375L388 136H334L225 375H279Z" fill="url(#blue)" filter="url(#glow)"/>
+  <circle cx="394" cy="124" r="14" fill="#EAF8FF" filter="url(#glow)"/>
+</svg>

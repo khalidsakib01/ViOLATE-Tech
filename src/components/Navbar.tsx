@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import BrandMark from "./BrandMark";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -31,9 +32,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="font-display text-xl font-bold tracking-tight">
-          <span className="gradient-text">ViOLATE</span>
-          <span className="text-foreground/70 font-light ml-1">Tech</span>
+        <a href="#" className="flex items-center gap-3 font-display text-xl font-bold tracking-tight">
+          <BrandMark className="h-9 w-9 rounded-xl object-contain shadow-[0_0_24px_rgba(126,92,255,0.25)]" />
+          <span>
+            <span className="gradient-text">ViOLATE</span>
+            <span className="text-foreground/70 font-light ml-1">Tech</span>
+          </span>
         </a>
 
         {/* Desktop */}
