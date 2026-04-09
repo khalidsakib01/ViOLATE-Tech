@@ -9,15 +9,15 @@ const reviews = [
   { name: "David Kim", handle: "@dkim", text: "They don't just build products — they build competitive advantages.", initials: "DK" },
 ];
 
-const ReviewCard = ({ r, compact = false }: { r: typeof reviews[0]; compact?: boolean }) => (
-  <div className={`flex-shrink-0 rounded-2xl glass hover:border-primary/20 transition-all duration-500 ${compact ? "w-full p-4" : "w-[320px] p-6"}`}>
-    <p className={`${compact ? "text-xs" : "text-sm"} text-foreground/80 leading-relaxed mb-4 sm:mb-5`}>"{r.text}"</p>
+const ReviewCard = ({ r }: { r: typeof reviews[0] }) => (
+  <div className="flex-shrink-0 w-[240px] sm:w-[320px] p-4 sm:p-6 rounded-2xl glass hover:border-primary/20 transition-all duration-500">
+    <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed mb-4 sm:mb-5">"{r.text}"</p>
     <div className="flex items-center gap-3">
       <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-[11px] font-semibold text-primary">
         {r.initials}
       </div>
       <div>
-        <p className={`${compact ? "text-xs" : "text-sm"} font-medium text-foreground`}>{r.name}</p>
+        <p className="text-xs sm:text-sm font-medium text-foreground">{r.name}</p>
         <p className="text-xs text-primary/60">{r.handle}</p>
       </div>
     </div>
@@ -42,22 +42,14 @@ const Reviews = () => {
         </motion.div>
       </div>
 
-      <div className="md:hidden container">
-        <div className="grid gap-3">
-          {reviews.slice(0, 3).map((r) => (
-            <ReviewCard key={r.name} r={r} compact />
-          ))}
-        </div>
-      </div>
-
       {/* Marquee row - scrolls right to left */}
-      <div className="relative hidden md:block">
+      <div className="relative">
         {/* Left fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
         {/* Right fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
 
-        <div className="flex gap-4 animate-marquee">
+        <div className="flex gap-3 sm:gap-4 animate-marquee">
           {allReviews.map((r, i) => (
             <ReviewCard key={`${r.name}-${i}`} r={r} />
           ))}
