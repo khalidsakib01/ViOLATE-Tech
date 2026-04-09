@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
@@ -21,6 +21,26 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const scrollToSection = (href: string) => {
+    const id = href.replace("#", "");
+    const target = document.getElementById(id);
+
+    if (!target) return;
+
+    setOpen(false);
+
+    window.setTimeout(() => {
+      const headerOffset = 96;
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = Math.max(targetPosition - headerOffset, 0);
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }, 180);
+  };
 
   return (
     <motion.nav
@@ -78,14 +98,14 @@ const Navbar = () => {
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((l) => (
-                <a
+                <button
                   key={l.label}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
+                  type="button"
+                  onClick={() => scrollToSection(l.href)}
                   className="w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
                 >
                   {l.label}
-                </a>
+                </button>
               ))}
             </div>
           </motion.div>
