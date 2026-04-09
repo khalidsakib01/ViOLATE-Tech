@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot } from "lucide-react";
+import { X, Send, Bot, Sparkles } from "lucide-react";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -69,8 +69,9 @@ const ChatAssistant = () => {
               <X size={20} className="text-primary-foreground" />
             </motion.div>
           ) : (
-            <motion.div key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
-              <MessageCircle size={20} className="text-primary-foreground" />
+            <motion.div key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} className="relative">
+              <Sparkles size={20} className="text-primary-foreground" />
+              <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-primary-foreground/90 shadow-[0_0_10px_rgba(255,255,255,0.35)]" />
             </motion.div>
           )}
         </AnimatePresence>
