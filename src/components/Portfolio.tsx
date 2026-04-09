@@ -15,7 +15,7 @@ const Portfolio = () => {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <section id="portfolio" className="py-16 md:py-28 lg:py-36">
+    <section id="portfolio" className="py-16 md:py-28 lg:py-36 scroll-mt-24 md:scroll-mt-28">
       <div className="container" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

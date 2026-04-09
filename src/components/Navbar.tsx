@@ -22,20 +22,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const id = href.replace("#", "");
-    const target = document.getElementById(id);
-    if (!target) return;
-
-    const headerOffset = 96;
-    const elementPosition = target.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = Math.max(elementPosition - headerOffset, 0);
-
-    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    window.history.replaceState(null, "", href);
-    setOpen(false);
-  };
-
   return (
     <motion.nav
       initial={{ y: -80 }}
@@ -92,14 +78,14 @@ const Navbar = () => {
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((l) => (
-                <button
+                <a
                   key={l.label}
-                  type="button"
-                  onClick={() => scrollToSection(l.href)}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
                   className="w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
                 >
                   {l.label}
-                </button>
+                </a>
               ))}
             </div>
           </motion.div>

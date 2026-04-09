@@ -29,7 +29,7 @@ const Reviews = () => {
   const allReviews = [...reviews, ...reviews];
 
   return (
-    <section id="reviews" className="py-16 md:py-28 lg:py-36 overflow-hidden">
+    <section id="reviews" className="py-16 md:py-28 lg:py-36 overflow-hidden scroll-mt-24 md:scroll-mt-28">
       <div className="container mb-8 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

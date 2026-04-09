@@ -14,7 +14,7 @@ const About = () => {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-28 md:py-36" ref={ref}>
+    <section id="about" className="py-28 md:py-36 scroll-mt-24 md:scroll-mt-28" ref={ref}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
