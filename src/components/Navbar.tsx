@@ -25,7 +25,14 @@ const Navbar = () => {
   const scrollToSection = (href: string) => {
     const id = href.replace("#", "");
     const target = document.getElementById(id);
-    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!target) return;
+
+    const headerOffset = 96;
+    const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = Math.max(elementPosition - headerOffset, 0);
+
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    window.history.replaceState(null, "", href);
     setOpen(false);
   };
 
