@@ -31,12 +31,12 @@ const Navbar = () => {
         scrolled ? "glass py-3" : "bg-transparent py-5"
       }`}
     >
-      <div className="container flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 font-display text-xl font-bold tracking-tight">
-          <BrandMark className="h-9 w-9 rounded-xl object-contain shadow-[0_0_24px_rgba(126,92,255,0.25)]" />
+      <div className="container flex items-center justify-between gap-3">
+        <a href="#" className="flex items-center gap-2 shrink-0 font-display text-base sm:text-xl font-bold tracking-tight">
+          <BrandMark className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl object-contain shadow-[0_0_24px_rgba(126,92,255,0.25)]" />
           <span>
             <span className="gradient-text">ViOLATE</span>
-            <span className="text-foreground/70 font-light ml-1">Tech</span>
+            <span className="hidden sm:inline text-foreground/70 font-light ml-1">Tech</span>
           </span>
         </a>
 
@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex md:hidden items-center gap-1 sm:gap-2 shrink-0">
           <ThemeToggle />
           <button
             onClick={() => setOpen(!open)}
