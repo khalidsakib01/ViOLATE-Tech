@@ -103,15 +103,25 @@
     @apply border-border;
   }
 
-body {
-  @apply bg-background text-foreground font-body antialiased;
-  overflow-x: hidden;
-}
+  html {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    background: hsl(var(--background));
+  }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
-}
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;

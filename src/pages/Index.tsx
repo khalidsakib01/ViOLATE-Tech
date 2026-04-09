@@ -11,7 +11,8 @@ import ChatAssistant from "@/components/ChatAssistant";
 import StarsBackground from "@/components/StarsBackground";
 
 const Index = () => (
-  <div className="min-h-screen relative">
+  <div className="min-h-screen w-full relative overflow-x-hidden bg-background">
+    <div className="fixed inset-0 -z-20 bg-background" aria-hidden="true" />
     <StarsBackground />
     <div className="relative z-10">
       <Navbar />

@@ -69,7 +69,8 @@ const StarsBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none"
+      className="fixed inset-0 z-0 block pointer-events-none"
+      style={{ width: "100vw", height: "100vh" }}
       aria-hidden="true"
     />
   );
