@@ -15,6 +15,7 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -23,24 +24,40 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const id = href.replace("#", "");
+    setOpen(false);
+    setPendingScroll(href);
+  };
+
+  useEffect(() => {
+    if (!pendingScroll || open) return;
+
+    const id = pendingScroll.replace("#", "");
     const target = document.getElementById(id);
 
-    if (!target) return;
+    if (!target) {
+      setPendingScroll(null);
+      return;
+    }
 
-    setOpen(false);
+    const firstFrame = window.requestAnimationFrame(() => {
+      const secondFrame = window.requestAnimationFrame(() => {
+        const headerOffset = 112;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = Math.max(targetPosition - headerOffset, 0);
 
-    window.setTimeout(() => {
-      const headerOffset = 96;
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = Math.max(targetPosition - headerOffset, 0);
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
+        setPendingScroll(null);
       });
-    }, 180);
-  };
+
+      return () => window.cancelAnimationFrame(secondFrame);
+    });
+
+    return () => window.cancelAnimationFrame(firstFrame);
+  }, [pendingScroll, open]);
 
   return (
     <motion.nav
