@@ -22,6 +22,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const scrollToSection = (href: string) => {
+    const id = href.replace("#", "");
+    const target = document.getElementById(id);
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ y: -80 }}
@@ -74,18 +81,18 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass mt-2 mx-4 rounded-xl overflow-hidden"
+            className="md:hidden glass mt-2 mx-4 rounded-xl overflow-hidden relative z-[60] pointer-events-auto"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((l) => (
-                <a
+                <button
                   key={l.label}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  type="button"
+                  onClick={() => scrollToSection(l.href)}
+                  className="w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
                 >
                   {l.label}
-                </a>
+                </button>
               ))}
             </div>
           </motion.div>
