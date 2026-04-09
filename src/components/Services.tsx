@@ -28,20 +28,20 @@ const Services = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold">What we build</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
+        <div className="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-3">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group p-5 sm:p-7 rounded-2xl glass hover:border-primary/30 transition-all duration-500 cursor-default"
+              className="group p-4 sm:p-7 rounded-2xl glass hover:border-primary/30 transition-all duration-500 cursor-default"
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 sm:mb-5 group-hover:glow-sm transition-all duration-500">
-                <s.icon size={16} className="h-4 w-4 sm:h-[18px] sm:w-[18px] text-primary" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3 sm:mb-5 group-hover:glow-sm transition-all duration-500">
+                <s.icon size={14} className="h-3.5 w-3.5 sm:h-[18px] sm:w-[18px] text-primary" />
               </div>
-              <h3 className="font-display text-base sm:text-lg font-semibold mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <h3 className="font-display text-sm sm:text-lg font-semibold mb-2 leading-tight">{s.title}</h3>
+              <p className="text-[0.72rem] sm:text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </div>

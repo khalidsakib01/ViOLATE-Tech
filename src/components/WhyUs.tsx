@@ -26,20 +26,20 @@ const WhyUs = () => {
           <h2 className="font-display text-3xl md:text-4xl font-bold">Built different</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-5">
+        <div className="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4">
           {reasons.map((r, i) => (
             <motion.div
               key={r.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="text-center p-5 sm:p-7 rounded-2xl glass"
+              className="text-center p-4 sm:p-7 rounded-2xl glass"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 sm:mb-5">
-                <r.icon size={18} className="sm:h-5 sm:w-5 text-primary" />
+              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 sm:mb-5">
+                <r.icon size={16} className="sm:h-5 sm:w-5 text-primary" />
               </div>
-              <h3 className="font-display font-semibold mb-2">{r.title}</h3>
-              <p className="text-sm text-muted-foreground">{r.desc}</p>
+              <h3 className="font-display text-sm sm:text-inherit font-semibold mb-2 leading-tight">{r.title}</h3>
+              <p className="text-[0.72rem] sm:text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
             </motion.div>
           ))}
         </div>
