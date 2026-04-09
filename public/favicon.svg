@@ -1,15 +1,15 @@
 <svg width="64" height="64" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="violet" x1="122" y1="96" x2="314" y2="350" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#B56CFF"/>
-      <stop offset="1" stop-color="#8E44FF"/>
+    <linearGradient id="violet" x1="124" y1="116" x2="280" y2="376" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C08BFF"/>
+      <stop offset="1" stop-color="#8A4DFF"/>
     </linearGradient>
-    <linearGradient id="blue" x1="262" y1="132" x2="392" y2="384" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#9DE7FF"/>
-      <stop offset="1" stop-color="#46A9FF"/>
+    <linearGradient id="blue" x1="260" y1="108" x2="384" y2="392" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A9F0FF"/>
+      <stop offset="1" stop-color="#3C9DFF"/>
     </linearGradient>
   </defs>
-  <path d="M114 140H232L175 229H284L149 372L114 140Z" fill="url(#violet)"/>
-  <path d="M279 375L388 136H334L225 375H279Z" fill="url(#blue)"/>
-  <circle cx="394" cy="124" r="14" fill="#EAF8FF"/>
+  <path d="M124 360L190 144H245L311 360H266L251 310H185L170 360H124ZM196 272H241L219 195L196 272Z" fill="url(#violet)" />
+  <path d="M328 144H374V360H328V144Z" fill="url(#blue)" />
+  <circle cx="381" cy="134" r="12" fill="#EAF8FF" />
 </svg>
